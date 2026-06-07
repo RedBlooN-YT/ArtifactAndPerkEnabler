@@ -6,6 +6,6 @@
 ArtifactAndPerkEnabler
 </h1>
 
-Allows you to turn on perks from social seasons and artifacts from rogue legends in any game mode. Ther mod only work if you are flagged to keep unflagged people from messing with social seasons. The artifacts also only work if you have purchased the DLC as otherwise you could get most of the crazy interactions without purchasing it.
+Allows you to turn on perks from social seasons and artifacts from rogue legends in any game mode. The mod only work if you are flagged to keep unflagged people from messing with social seasons. The artifacts also only work if you have purchased the DLC as otherwise you could get most of the crazy interactions without purchasing it.
 
 [![Requires BTD6 Mod Helper](https://raw.githubusercontent.com/gurrenm3/BTD-Mod-Helper/master/banner.png)](https://github.com/gurrenm3/BTD-Mod-Helper#readme)
