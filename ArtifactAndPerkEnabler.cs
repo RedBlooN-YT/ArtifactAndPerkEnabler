@@ -43,7 +43,7 @@ public class ArtifactAndPerkEnabler : BloonsTD6Mod
             mod.ModSettings[perk.key] = new ModSettingBool(false)
             {
                 displayName = perk.key,
-                description = $"Enable {perk.key} Description: {perk.value.model.description}",
+                description = $"Enable {perk.key}",
                 category = Perks,
                 icon = perk.Value.model.icon.AssetGUID
             };
@@ -54,7 +54,27 @@ public class ArtifactAndPerkEnabler : BloonsTD6Mod
             mod.ModSettings[artifact.ArtifactName] = new ModSettingBool(false)
             {
                 displayName = artifact.ArtifactName,
-                description = $"Enable {artifact.ArtifactName} Description: {artifact.descriptionLocKey}",
+                description = $"Enable {artifact.ArtifactName}",
+                category = Artifacts,
+                icon = artifact.icon.AssetGUID
+            };
+        }
+        foreach (var artifact in GameData.Instance.artifactsData.artifactModelsByType[Il2CppType.Of<BoostArtifactModel>()])
+        {
+            mod.ModSettings[artifact.ArtifactName] = new ModSettingBool(false)
+            {
+                displayName = artifact.ArtifactName,
+                description = $"Enable {artifact.ArtifactName}",
+                category = Artifacts,
+                icon = artifact.icon.AssetGUID
+            };
+        }
+        foreach (var artifact in GameData.Instance.artifactsData.artifactModelsByType[Il2CppType.Of<MapArtifactModel>()])
+        {
+            mod.ModSettings[artifact.ArtifactName] = new ModSettingBool(false)
+            {
+                displayName = artifact.ArtifactName,
+                description = $"Enable {artifact.ArtifactName}",
                 category = Artifacts,
                 icon = artifact.icon.AssetGUID
             };
