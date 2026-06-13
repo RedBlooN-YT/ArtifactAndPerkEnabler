@@ -6,6 +6,6 @@
 ArtifactAndPerkEnabler
 </h1>
 
-Allows you to turn on perks from social seasons and artifacts from rogue legends in any game mode. The mod only work if you are flagged to keep unflagged people from messing with social seasons. The artifacts also only work if you have purchased the DLC as otherwise you could get most of the crazy interactions without purchasing it. Also keep in mind a lot of the artifacts do nothing in game modes besides rogue legends like abundant choices so just ignore those.
+Allows you to turn on perks from social seasons and artifacts from rogue legends in any game mode. The mod only work if you are flagged to keep unflagged people from messing with social seasons. The artifacts also only work if you have purchased the DLC as otherwise you could get most of the crazy interactions without purchasing it. Also keep in mind a lot of the artifacts do nothing in game modes besides rogue legends like abundant choices so just ignore those. It also now has A toggle all perks and toggke all artifacts button. Thanks to [RubbyBTD](https://www.youtube.com/channel/UCLKWoZj7J7FwMHmYxPDUESg) For the idea to add the toggle all buttons. Keep in mind that you must exit the settings menu and re-enter it to see that they were all enabled, and enabling all of them at once will cause an insane amount of lag.
 
 [![Requires BTD6 Mod Helper](https://raw.githubusercontent.com/gurrenm3/BTD-Mod-Helper/master/banner.png)](https://github.com/gurrenm3/BTD-Mod-Helper#readme)

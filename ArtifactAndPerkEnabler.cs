@@ -88,6 +88,89 @@ public class ArtifactAndPerkEnabler : BloonsTD6Mod
     {
         icon = VanillaSprites.PerksIconSmall
     };
+    public static ModSettingBool ToggleAllPerks = new ModSettingBool(false)
+    {
+        displayName = "ToggleAllPerks",
+        description = "Enables all perks at once",
+        category = null,
+        icon = VanillaSprites.PerksIconSmall
+    };
+    public static ModSettingBool ToggleAllArtifacts = new ModSettingBool(false)
+    {
+        displayName = "ToggleAllArtifacts",
+        description = "Enables all artifacts at once",
+        category = null,
+        icon = VanillaSprites.ArtifactPowerIcon
+    };
+    [HarmonyPatch(typeof(ModSettingBool), nameof(ModSettingBool.SetValue))]
+    public static class ModSettingBoolPatch
+    {
+        static void Postfix(ModSettingBool __instance)
+        {
+            if (__instance.Name == "ToggleAllPerks")
+            {
+                var mod = ModContent.GetInstance<ArtifactAndPerkEnabler>();
+
+                foreach (var perk in GameData.Instance.perkData.perkDatas)
+                {
+                    var setting = (ModSettingBool)mod.ModSettings[perk.key];
+
+                    if ((bool)__instance.GetValue() == true)
+                    {
+                        setting.SetValue(true);
+                    }
+                    else if ((bool)__instance.GetValue() == false)
+                    {
+                        setting.SetValue(false);
+                    }
+                }
+            }
+            else if (__instance.Name == "ToggleAllArtifacts")
+            {
+                var mod = ModContent.GetInstance<ArtifactAndPerkEnabler>();
+
+                foreach (var artifact in GameData.Instance.artifactsData.artifactModelsByType[Il2CppType.Of<ItemArtifactModel>()])
+                {
+                    var setting = (ModSettingBool)mod.ModSettings[artifact.ArtifactName];
+
+                    if ((bool)__instance.GetValue() == true)
+                    {
+                        setting.SetValue(true);
+                    }
+                    else if ((bool)__instance.GetValue() == false)
+                    {
+                        setting.SetValue(false);
+                    }
+                }
+                foreach (var artifact in GameData.Instance.artifactsData.artifactModelsByType[Il2CppType.Of<BoostArtifactModel>()])
+                {
+                    var setting = (ModSettingBool)mod.ModSettings[artifact.ArtifactName];
+
+                    if ((bool)__instance.GetValue() == true)
+                    {
+                        setting.SetValue(true);
+                    }
+                    else if ((bool)__instance.GetValue() == false)
+                    {
+                        setting.SetValue(false);
+                    }
+                }
+                foreach (var artifact in GameData.Instance.artifactsData.artifactModelsByType[Il2CppType.Of<MapArtifactModel>()])
+                {
+                    var setting = (ModSettingBool)mod.ModSettings[artifact.ArtifactName];
+
+                    if ((bool)__instance.GetValue() == true)
+                    {
+                        setting.SetValue(true);
+                    }
+                    else if ((bool)__instance.GetValue() == false)
+                    {
+                        setting.SetValue(false);
+                    }
+                }
+            }
+        }
+    }
     [HarmonyPatch(typeof(InGame), nameof(InGame.Initialise))]
     public static class AfterInGameStartPatch
     {
@@ -104,6 +187,24 @@ public class ArtifactAndPerkEnabler : BloonsTD6Mod
                     var mod = ModContent.GetInstance<ArtifactAndPerkEnabler>();
 
                     foreach (var artifact in GameData.Instance.artifactsData.artifactModelsByType[Il2CppType.Of<ItemArtifactModel>()])
+                    {
+                        var setting = (ModSettingBool)mod.ModSettings[artifact.ArtifactName];
+
+                        if ((bool)setting.GetValue())
+                        {
+                            artifacts.Add(artifact.ArtifactName);
+                        }
+                    }
+                    foreach (var artifact in GameData.Instance.artifactsData.artifactModelsByType[Il2CppType.Of<BoostArtifactModel>()])
+                    {
+                        var setting = (ModSettingBool)mod.ModSettings[artifact.ArtifactName];
+
+                        if ((bool)setting.GetValue())
+                        {
+                            artifacts.Add(artifact.ArtifactName);
+                        }
+                    }
+                    foreach (var artifact in GameData.Instance.artifactsData.artifactModelsByType[Il2CppType.Of<MapArtifactModel>()])
                     {
                         var setting = (ModSettingBool)mod.ModSettings[artifact.ArtifactName];
 
